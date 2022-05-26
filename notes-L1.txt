@@ -1,0 +1,39 @@
+FLAG ( --save-dev  )
+KEY (  -D  )
+
+
+
+
+1. Create Node.js Project ( npm init -y)
+2. Install required packejes (nodemon, cors, express etc...) [yargs - for CLS apps] 
+3. Create .gitingore file with node_modules/ inside
+4. Write scripts:
+    "start": "node index",
+    "start:dev": "nodemon index"
+
+
+
+CLI creation:
+
+1. yargs
+
+     const yargs = require("yargs");
+     const { hideBin } = require("yargs/helpers");
+     const { program } = require("commander");
+
+     const arr = hideBin(process.argv);
+     const { argv } = yargs(arr);
+     console.log(argv);
+
+2. commander
+
+    const { program } = require("commander");
+    
+    program
+    .option("--action <type>")
+    .option("--id <type>")
+    .option("--author <type>")
+    .option("--title <type>");
+    program.parse(process.argv);
+
+    const opts = program.opts();
